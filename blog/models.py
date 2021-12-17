@@ -27,7 +27,7 @@ class Comment(models.Model):
     published_date = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        ordering = ('created',)
+        ordering = ('created_date',)
 
     def __str__(self):
-        return 'Comment by {} on {}'.format(self.name, self.post)
+        return 'Comment by {} on {}'.format(self.author, self.post)

@@ -18,4 +18,27 @@
         <h2>{{ post.title }}</h2>
         <p>{{ post.text|linebreaksbr }}</p>
     </article>
+
+    {% with comments.count as total_comments %}
+        <h2>
+            {{ total_comments }} comment{{ total_comments|pluralize }}
+        </h2>
+    {% endwith %}
+
+    {% for comment in comments %}
+    <div class="comment">
+        <p class="info">
+            Comment {{ forloop.counter }} by {{ comment.author }}
+            {{ comment.created_date }}
+        </p>
+        {{ comment.text|linebreaks }}
+    </div>
+    {% empty %}
+        <p>There are no comments yet.</p>
+    {% endfor %}
+
+    <form method="POST" class="comment-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
 {% endblock %}
