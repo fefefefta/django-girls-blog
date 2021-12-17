@@ -73,3 +73,13 @@ h4 {
     color: #FFFFFF;
     background-color: #eab676;
 }
+
+.my-comment {
+    background-color: #fff3d6;
+    border: 1px solid #f0d797;
+    border-radius: 4px;
+    padding-left: 13px;
+    padding-right: 13px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
